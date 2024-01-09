@@ -15,7 +15,7 @@ M.setup = function()
 
     require('mason').setup();
     require('mason-lspconfig').setup({
-        ensure_installed = { 'lua_ls', 'rust_analyzer', 'intelephense', 'yamlls' }
+        ensure_installed = { 'lua_ls', 'rust_analyzer', 'intelephense', 'yamlls', 'html', 'tsserver' }
     });
     local capabilities = require('cmp_nvim_lsp').default_capabilities();
 
@@ -27,6 +27,14 @@ M.setup = function()
         capabilities = capabilities
     }
     lspconfig.intelephense.setup {
+        capabilities = capabilities
+    }
+
+    lspconfig.tsserver.setup {
+        capabilities = capabilities
+    }
+
+    lspconfig.html.setup = {
         capabilities = capabilities
     }
 

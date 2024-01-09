@@ -4,8 +4,14 @@ M.name = 'Tokyo Night';
 M.colorscheme = '';
 
 M.setup = function()
-    require('onedark').setup({})
+    require('tokyonight').setup({
+        styles = {
+            comments = { italic = true }
+        }
+    })
 end
+
+-- this is a comment
 
 M.on_load = function()
     return [[colorscheme tokyonight]]
