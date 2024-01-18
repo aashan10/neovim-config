@@ -12,7 +12,8 @@ local plugins = {
     'plugins.zen-mode',
     'plugins.themes',
     'plugins.nvim-cmp',
-    'plugins.lsp'
+    'plugins.lsp',
+    'plugins.harpoon'
 };
 
 

@@ -1,12 +1,13 @@
 local M = {};
 
 local themes = {
-    'onedark',
-    'darcula',
-    'tokyonight',
+   -- 'onedark',
+   -- 'darcula',
+   -- 'tokyonight',
+   'catpuccin'
 };
 
-local active_colorscheme = 'tokyonight'; -- 'darcula', 'onedark'
+local active_colorscheme = 'catppuccin-mocha'; -- 'darcula', 'onedark'
 
 function require_theme(name)
     return require('plugins.themes.' .. name);

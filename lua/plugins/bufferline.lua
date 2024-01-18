@@ -12,7 +12,8 @@ M.setup = function()
             indicator = {
                 style = 'underline'
             }
-        }
+        },
+        highlights = require('catppuccin.groups.integrations.bufferline').get()
     })
 
     vim.keymap.set('n', ']b', '<cmd>bnext<CR>', { desc = "Next Buffer -- see :h :bn" });
