@@ -13,7 +13,9 @@ local plugins = {
     'plugins.themes',
     'plugins.nvim-cmp',
     'plugins.lsp',
-    'plugins.harpoon'
+    'plugins.harpoon',
+--     'plugins.noice',
+    'plugins.trouble'
 };
 
 
