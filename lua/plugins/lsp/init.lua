@@ -1,7 +1,6 @@
 local M = {};
 
 M.init = function()
-
     return {
         'neovim/nvim-lspconfig',
         dependencies = {
@@ -12,7 +11,6 @@ M.init = function()
 end
 
 M.setup = function()
-
     require('mason').setup();
     require('mason-lspconfig').setup({
         ensure_installed = { 'lua_ls', 'rust_analyzer', 'intelephense', 'yamlls', 'html', 'tsserver' }
@@ -21,6 +19,13 @@ M.setup = function()
 
     local lspconfig = require('lspconfig');
     lspconfig.lua_ls.setup {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { 'vim' }
+                }
+            }
+        },
         capabilities = capabilities
     }
     lspconfig.rust_analyzer.setup {
@@ -72,7 +77,6 @@ M.setup = function()
             end, opts)
         end,
     })
-
 end
 
 return M;

@@ -1,12 +1,12 @@
 local M = {};
 
 M.init = function()
-   return {
+    return {
         'kdheepak/lazygit.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim'
         }
-   }
+    }
 end
 
 M.setup = function()

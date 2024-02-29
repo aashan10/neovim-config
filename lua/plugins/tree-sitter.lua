@@ -6,8 +6,8 @@ M.init = function()
     }
 end
 
-M.setup = function ()
-    require'nvim-treesitter.configs'.setup {
+M.setup = function()
+    require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
             "lua", "html", "php", "rust", "typescript"
         },
@@ -19,3 +19,4 @@ M.setup = function ()
 end
 
 return M;
+

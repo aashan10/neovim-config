@@ -15,8 +15,7 @@ M.setup = function()
 
     harpoon:setup()
 
-
--- basic telescope configuration
+    -- basic telescope configuration
     local conf = require("telescope.config").values
     local function toggle_telescope(harpoon_files)
         local file_paths = {}
@@ -31,11 +30,27 @@ M.setup = function()
             }),
             previewer = conf.file_previewer({}),
             sorter = conf.generic_sorter({}),
+            attach_mappings = function(prompt_buffer_nr, map)
+                map("n", "<C-x>", function ()
+                    local state = require('telescope.actions.state')
+                    local selected = state.get_selected_entry()
+                    local picker = state.get_current_picker(prompt_buffer_nr)
+
+                    harpoon:list():removeAt(selected.index)
+                    picker:refresh()
+                end)
+
+                return true
+            end
         }):find()
     end
 
-    vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-    vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+    vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "Harpoon: Append to list" })
+    vim.keymap.set("n", "<leader>x", function()
+        harpoon:info();
+    end)
+    vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
+        { desc = "Harpoon: Toggle UI" })
 
     vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
     vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
@@ -45,9 +60,6 @@ M.setup = function()
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
     vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
-    vim.keymap.set("n", "<leader>fh", function() toggle_telescope(harpoon:list()) end,
-        { desc = "Open harpoon window" })
-
 end
 
 

@@ -7,7 +7,7 @@ M.init = function()
 end
 
 M.setup = function()
-    require('dressing').setup()
+    -- require('dressing').setup()
 end
 
 return M;

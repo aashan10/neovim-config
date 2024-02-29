@@ -14,8 +14,8 @@ local plugins = {
     'plugins.nvim-cmp',
     'plugins.lsp',
     'plugins.harpoon',
---     'plugins.noice',
-    'plugins.trouble'
+    'plugins.whichkey',
+    'plugins.dap'
 };
 
 
@@ -27,7 +27,6 @@ function get_plugins()
     end
     return p;
 end
-
 
 function get_plugin_configs()
     local configs = {};
@@ -44,7 +43,6 @@ function setup_plugins()
 end
 
 function initialize_lazy()
-
     local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
     if not vim.loop.fs_stat(lazy_path) then
@@ -59,14 +57,13 @@ function initialize_lazy()
     end
 
     vim.opt.rtp:prepend(lazy_path);
-
 end
 
 function setup_lazy(options)
     require("lazy").setup(options)
 end
 
-M.setup = function ()
+M.setup = function()
     initialize_lazy();
     setup_lazy(get_plugin_configs());
     setup_plugins();

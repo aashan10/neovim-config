@@ -1,4 +1,3 @@
-
 local M = {};
 
 M.init = function()
@@ -8,8 +7,7 @@ M.init = function()
 end
 
 M.setup = function()
-
-    vim.keymap.set('n', '<leader>zz', function() 
+    vim.keymap.set('n', '<leader>zz', function()
         require('zen-mode').toggle({
             window = {
                 width = .70

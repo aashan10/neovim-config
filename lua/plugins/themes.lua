@@ -4,10 +4,9 @@ local themes = {
    -- 'onedark',
    -- 'darcula',
    -- 'tokyonight',
-   'catpuccin'
 };
 
-local active_colorscheme = 'catppuccin-mocha'; -- 'darcula', 'onedark'
+local active_colorscheme = 'habamax'; -- 'darcula', 'onedark'
 
 function require_theme(name)
     return require('plugins.themes.' .. name);
