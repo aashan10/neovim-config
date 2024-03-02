@@ -1,7 +1,7 @@
 local M = {};
 
 
-local active_colorscheme = 'habamax-custom'; -- this theme is inside ROOT/colors/habamax-custom.vim
+local active_colorscheme = 'aashan'; -- this theme is inside ROOT/colors/habamax-custom.vim
 
 
 M.init = function()
