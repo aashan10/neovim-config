@@ -9,11 +9,11 @@ end
 M.setup = function()
     require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
-            "lua", "html", "php_only", "rust", "typescript", "twig"
+            "lua", "html", "phpdoc", "rust", "typescript", "twig"
         },
         auto_install = true,
         highlight = {
-            enable = false,
+            enable = true,
         }
     }
 end

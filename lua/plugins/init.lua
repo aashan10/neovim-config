@@ -16,12 +16,13 @@ local plugins = {
     'plugins.harpoon',
     'plugins.whichkey',
     'plugins.dap',
-    'plugins.ultimate-autopairs'
+    'plugins.ultimate-autopairs',
+    'plugins.dressing'
 };
 
 
 
-function get_plugins()
+local function get_plugins()
     local p = {};
     for _, plugin in pairs(plugins) do
         table.insert(p, require(plugin))
@@ -29,21 +30,25 @@ function get_plugins()
     return p;
 end
 
-function get_plugin_configs()
+local function get_plugin_configs()
     local configs = {};
     for _, plugin in pairs(get_plugins()) do
-        table.insert(configs, plugin.init());
+        local plugin_config = plugin.init();
+
+        if plugin_config ~= nil then
+            table.insert(configs, plugin.init());
+        end
     end
     return configs;
 end
 
-function setup_plugins()
+local function setup_plugins()
     for _, plugin in pairs(get_plugins()) do
         plugin.setup();
     end
 end
 
-function initialize_lazy()
+local function initialize_lazy()
     local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
     if not vim.loop.fs_stat(lazy_path) then
@@ -60,7 +65,7 @@ function initialize_lazy()
     vim.opt.rtp:prepend(lazy_path);
 end
 
-function setup_lazy(options)
+local function setup_lazy(options)
     require("lazy").setup(options)
 end
 
