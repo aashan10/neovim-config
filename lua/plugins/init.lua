@@ -15,7 +15,8 @@ local plugins = {
     'plugins.lsp',
     'plugins.harpoon',
     'plugins.whichkey',
-    'plugins.dap'
+    'plugins.dap',
+    'plugins.ultimate-autopairs'
 };
 
 

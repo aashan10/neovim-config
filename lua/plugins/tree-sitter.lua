@@ -13,7 +13,7 @@ M.setup = function()
         },
         auto_install = true,
         highlight = {
-            enable = true,
+            enable = false,
         }
     }
 end
