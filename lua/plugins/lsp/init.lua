@@ -17,7 +17,8 @@ M.setup = function()
         'phpactor',
         'yamlls',
         'html',
-        'tsserver'
+        'tsserver',
+        'volar'
     };
     require('mason').setup();
     require('mason-lspconfig').setup({
@@ -52,6 +53,10 @@ M.setup = function()
     }
 
     lspconfig.bufls.setup {
+        capabilities = capabilities
+    }
+
+    lspconfig.volar.setup = {
         capabilities = capabilities
     }
 
