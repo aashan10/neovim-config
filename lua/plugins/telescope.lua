@@ -20,9 +20,9 @@ M.setup = function()
     telescope.setup();
     telescope.load_extension('fzf');
 
-    vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { desc = "Fuzzy find files in CWD" });
-    vim.keymap.set('n', '<leader>fs', '<cmd>Telescope live_grep<CR>', { desc = "Fuzzy find string in CWD" });
-    vim.keymap.set('n', '<leader>fc', '<cmd>Telescope grep_string<CR>', { desc = "Fuzzy find string under the cursor" });
+    vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { desc = "Telescope: Find Files" });
+    vim.keymap.set('n', '<leader>fs', '<cmd>Telescope live_grep<CR>', { desc = "Telescope: Live Grep" });
+    vim.keymap.set('n', '<leader>fc', '<cmd>Telescope grep_string<CR>', { desc = "Telescope: Grep String" });
 end
 
 

@@ -12,8 +12,8 @@ end
 M.setup = function()
     require("nvim-tree").setup();
 
-    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>");
-    vim.keymap.set("n", "<leader>.", "<cmd>NvimTreeFocus<CR>");
+    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree: Toggle" });
+    vim.keymap.set("n", "<leader>.", "<cmd>NvimTreeFocus<CR>", { desc = "NvimTree: Focus" });
 end
 
 return M;

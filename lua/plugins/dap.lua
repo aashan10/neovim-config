@@ -13,7 +13,10 @@ end
 
 M.setup = function()
     local dap = require('dap');
+    local dapui = require('dapui').setup();
+    -- require('dap.nvim-dap-ui');
     require('telescope').load_extension('dap');
+    -- require('dap.nvim-dap-virtual-text');
     dap.adapters.php = {
         type = 'executable',
         command = 'php-debug-adapter'
@@ -23,7 +26,16 @@ M.setup = function()
         {
             type = 'php',
             request = 'launch',
-            name = 'Listen for XDebug',
+            name = 'Run Current Script',
+            port = 9003,
+            cwd = "${fileDirname}",
+            program = "${file}",
+            runtimeExecutable = "php"
+        },
+        {
+            type = "php",
+            name = "Listen for Request",
+            request = "launch",
             port = 9003
         }
     }

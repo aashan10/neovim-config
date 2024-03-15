@@ -17,7 +17,8 @@ local plugins = {
     'plugins.whichkey',
     'plugins.dap',
     'plugins.ultimate-autopairs',
-    'plugins.dressing'
+    'plugins.dressing',
+    'plugins.lualine'
 };
 
 
