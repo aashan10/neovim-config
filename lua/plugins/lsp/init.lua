@@ -37,6 +37,10 @@ M.setup = function()
         },
         capabilities = capabilities
     }
+    -- TODO: Fix this vuejs thing
+    lspconfig.volar.setup = {
+        capabilities = capabilities,
+    };
     lspconfig.rust_analyzer.setup {
         capabilities = capabilities
     }
@@ -53,10 +57,6 @@ M.setup = function()
     }
 
     lspconfig.bufls.setup {
-        capabilities = capabilities
-    }
-
-    lspconfig.volar.setup = {
         capabilities = capabilities
     }
 
@@ -80,8 +80,10 @@ M.setup = function()
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts, { desc = "LSP: Hover" })
             vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts, { desc = "LSP: Show Implementations" })
             vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts, { desc = "LSP: Signature Help" })
-            vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts, { desc = "LSP: Add Workspace Folder" })
-            vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts, { desc = "LSP: Remove Workspace Folder" });
+            vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts,
+                { desc = "LSP: Add Workspace Folder" })
+            vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts,
+                { desc = "LSP: Remove Workspace Folder" });
             vim.keymap.set('n', '<leader>wl', function()
                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end, opts, { desc = "LSP: List Workspace Folders" });

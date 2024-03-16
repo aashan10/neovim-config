@@ -2,6 +2,7 @@ local M = {};
 
 -- Register Your Plugins Here
 local plugins = {
+    'plugins.mini',
     'plugins.nvim-tree',
     'plugins.tree-sitter',
     'plugins.telescope',
@@ -18,7 +19,8 @@ local plugins = {
     'plugins.dap',
     'plugins.ultimate-autopairs',
     'plugins.dressing',
-    'plugins.lualine'
+    'plugins.lualine',
+    'plugins.todo-comments'
 };
 
 

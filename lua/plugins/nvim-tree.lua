@@ -10,7 +10,11 @@ M.init = function()
 end
 
 M.setup = function()
-    require("nvim-tree").setup();
+    require("nvim-tree").setup({
+        filters = {
+            dotfiles = false
+        }
+    });
 
     vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree: Toggle" });
     vim.keymap.set("n", "<leader>.", "<cmd>NvimTreeFocus<CR>", { desc = "NvimTree: Focus" });
