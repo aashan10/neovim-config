@@ -11,10 +11,15 @@ end
 -- Any extra configuration goes here
 -- You can do stuff like keymappings or just any general configuration
 -- This method runs after all the plugins are loaded
--- TODO: Something to be done here 
 M.setup = function()
-    require('mini.starter').setup();
+    require('mini.starter').setup({
+        autoopen = true,
+        header = "neovim, truely yours",
+        items = {},
+        footer = ""
+    });
     require('mini.indentscope').setup();
+    require('mini.surround').setup();
 end
 
 return M;
