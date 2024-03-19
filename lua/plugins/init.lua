@@ -20,7 +20,8 @@ local plugins = {
     'plugins.ultimate-autopairs',
     'plugins.dressing',
     'plugins.lualine',
-    'plugins.todo-comments'
+    'plugins.todo-comments',
+    'plugins.copilot'
 };
 
 
