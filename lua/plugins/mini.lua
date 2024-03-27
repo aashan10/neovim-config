@@ -14,12 +14,22 @@ end
 M.setup = function()
     require('mini.starter').setup({
         autoopen = true,
-        header = "neovim, truely yours",
-        items = {},
-        footer = ""
+        header   = "neovim, truely yours",
+        items    = {},
+        footer   = ""
+    });
+    require('mini.move').setup({
+        mappings = {
+            left  = "<C-h>",
+            right = "<C-l>",
+            up    = "<C-k>",
+            down  = "<C-j>",
+        }
     });
     require('mini.indentscope').setup();
     require('mini.surround').setup();
+    require('mini.align').setup();
+    require('mini.comment').setup();
 end
 
 return M;
