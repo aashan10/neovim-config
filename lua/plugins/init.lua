@@ -21,7 +21,9 @@ local plugins = {
     'plugins.dressing',
     'plugins.lualine',
     'plugins.todo-comments',
-    'plugins.copilot'
+    'plugins.copilot',
+    'plugins.tmux',
+    'plugins.anyman',
 };
 
 
