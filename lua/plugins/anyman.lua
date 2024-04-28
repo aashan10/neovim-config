@@ -1,16 +1,14 @@
-local function get_any()
-    local path = vim.fn.getcwd();
-    return path .. "/../../any";
-end
-
 local function is_any_project()
-    local f = io.open(get_any(), "r");
+    local path = vim.fn.getcwd();
+    local f = io.open(path .. "/../../any", "r");
     if f ~= nil then
         io.close(f);
         return true;
     end
     return false;
 end
+
+
 
 local M = {};
 
@@ -36,7 +34,7 @@ M.anyman = function ()
     local execute = require('plugins.tmux').run_command;
     local path = vim.fn.getcwd();
 
-    local result = execute("cd " .. path .."/../../ && any help");
+    local result = execute("cd " .. path .."/../../ && any commands");
 
 
 
@@ -56,9 +54,20 @@ M.anyman = function ()
         attach_mappings = function(prompt_bufnr, map)
             local select_anyman = function()
                 local selection = require("telescope.actions.state").get_selected_entry()
-                local anyman = selection.value;
-                vim.cmd("silent !anyman " .. anyman);
-                require("telescope.actions").close(prompt_bufnr)
+                local line = selection.value;
+                local command = line:match("^(.-) --");
+
+                if command == nil then
+                    print("No command found");
+                    return;
+                end
+                if command:find("%[args]") then
+                    local args = vim.fn.input("Arguments: ");
+                    command = command:gsub("%[args]", args);
+                end
+
+                vim.cmd("!tmux split-window -h -c " .. path .. "/../../ -p 50 'any " .. command .. " && read'");
+                -- require("telescope.actions").close(prompt_bufnr)
             end
 
             map('i', '<CR>', select_anyman)
@@ -70,4 +79,5 @@ M.anyman = function ()
 end
 
 return M;
+
 
