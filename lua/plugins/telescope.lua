@@ -7,6 +7,7 @@ M.init = function()
             'nvim-lua/plenary.nvim',
             {
                 'nvim-telescope/telescope-fzf-native.nvim',
+                'nvim-telescope/telescope-dap.nvim',
                 build = 'make'
             }
         }
@@ -19,6 +20,7 @@ M.setup = function()
 
     telescope.setup();
     telescope.load_extension('fzf');
+    telescope.load_extension('dap');
 
     vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { desc = "Telescope: Find Files" });
     vim.keymap.set('n', '<leader>fs', '<cmd>Telescope live_grep<CR>', { desc = "Telescope: Live Grep" });

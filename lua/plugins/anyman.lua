@@ -1,14 +1,16 @@
-local function is_any_project()
+local function get_any()
     local path = vim.fn.getcwd();
-    local f = io.open(path .. "/../../any", "r");
+    return path .. "/../../any";
+end
+
+local function is_any_project()
+    local f = io.open(get_any(), "r");
     if f ~= nil then
         io.close(f);
         return true;
     end
     return false;
 end
-
-
 
 local M = {};
 
