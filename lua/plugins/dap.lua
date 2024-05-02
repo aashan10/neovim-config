@@ -2,9 +2,14 @@ local M = {};
 
 M.init = function()
     return {
-        'mfussengger/nvim-dap',
+        'mfussenegger/nvim-dap',
         dependencies = {
-            'rcarriga/nvim-dap-ui',
+            {
+                'rcarriga/nvim-dap-ui',
+                dependencies = {
+                    'nvim-neotest/nvim-nio'
+                }
+            },
         }
     }
 end

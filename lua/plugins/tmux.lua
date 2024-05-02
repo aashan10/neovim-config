@@ -81,7 +81,7 @@ M.open_project = function ()
     end
 
     -- project path = ~/<project_name>
-    local project_path = "~/Projects/" .. project_name;
+    local project_path = "~/" .. project_name;
     -- open tmux window in the project path
     vim.cmd("silent !tmux new-window -t MAIN: -n " .. project_name);
     vim.cmd("silent !tmux select-window -t MAIN:" .. project_name);

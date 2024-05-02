@@ -2,7 +2,8 @@ local M = {};
 
 M.init = function()
     return {
-        'akinsho/bufferline.nvim'
+        'akinsho/bufferline.nvim',
+        version = "*"
     }
 end
 
