@@ -6,8 +6,6 @@ local plugins = {
     'plugins.nvim-tree',
     'plugins.tree-sitter',
     'plugins.telescope',
-    'plugins.bufferline',
-    'plugins.git-blame',
     'plugins.git-signs',
     'plugins.lazy-git',
     'plugins.zen-mode',
@@ -24,6 +22,7 @@ local plugins = {
     'plugins.copilot',
     'plugins.tmux',
     'plugins.anyman',
+    'plugins.outline',
 };
 
 

@@ -12,13 +12,18 @@ end
 M.setup = function()
     require("nvim-tree").setup({
         filters = {
-            dotfiles = false
-        }
+            dotfiles = true
+        },
     });
 
     vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree: Toggle" });
     vim.keymap.set("n", "<leader>.", "<cmd>NvimTreeFocus<CR>", { desc = "NvimTree: Focus" });
+
+    local api = require('nvim-tree.api');
+
+    api.events.subscribe(api.events.Event.FileCreated, function(file)
+        vim.cmd("edit " .. file.fname)
+    end)
 end
 
 return M;
-

@@ -9,7 +9,8 @@ M.init = function()
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-cmdline',
             'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip'
+            'saadparwaiz1/cmp_luasnip',
+            'rafamadriz/friendly-snippets'
         }
     }
 end
@@ -17,19 +18,21 @@ end
 
 M.setup = function()
     local cmp = require('cmp');
-    local luasnip = require('luasnip')
+    local luasnip = require('luasnip');
+
+    require('luasnip.loaders.from_vscode').lazy_load()
 
     cmp.setup({
         snippet = {
             expand = function(args)
-                luasnip.lsp_expand(args.body)
+                luasnip.luasnip._expand(args.body)
             end
         },
 
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
-            { name = 'buffer' },
             { name = 'luasnip' },
+            { name = 'buffer' },
         }, {
             { name = 'path' },
         }),
@@ -48,51 +51,26 @@ M.setup = function()
             end,
         },
         mapping = {
-            ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
-            ['<Down>'] = cmp.mapping.select_next_item(select_opts),
+            ['<Up>'] = cmp.mapping.select_prev_item(),
+            ['<Down>'] = cmp.mapping.select_next_item(),
 
             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
             ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
             ['<C-e>'] = cmp.mapping.abort(),
             ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
-
-            ['<C-f>'] = cmp.mapping(function(fallback)
-                if luasnip.jumpable(1) then
-                    luasnip.jump(1)
-                else
-                    fallback()
-                end
-            end, { 'i', 's' }),
-
-            ['<C-b>'] = cmp.mapping(function(fallback)
-                if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, { 'i', 's' }),
-
-            ['<Tab>'] = cmp.mapping(function(fallback)
-                local col = vim.fn.col('.') - 1
+            ['<CR>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
-                    cmp.select_next_item(select_opts)
-                elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-                    fallback()
-                else
-                    cmp.complete()
-                end
-            end, { 'i', 's' }),
-
-            ['<S-Tab>'] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item(select_opts)
+                    if luasnip.expandable() then
+                        luasnip.expand()
+                    else
+                        cmp.confirm({ select = true })
+                    end
                 else
                     fallback()
                 end
-            end, { 'i', 's' }),
-        },
+            end),
+       },
 
 
     })
@@ -113,6 +91,25 @@ M.setup = function()
             { name = 'cmdline' }
         })
     })
+
+
+    vim.keymap.set({ "i", "s" }, "<C-k>", function()
+        if luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+        end
+    end, { silent = true })
+
+    vim.keymap.set({ "i", "s" }, "<C-j>", function()
+        if luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+        end
+    end, { silent = true })
+
+    vim.keymap.set("i", "<C-l>", function()
+        if luasnip.choice_active() then
+            luasnip.change_choice(1)
+        end
+    end)
 end
 
 return M;

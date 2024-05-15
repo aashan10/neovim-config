@@ -43,7 +43,7 @@ M.setup = function()
         visual = group,
         replace = group,
         command = group,
-        inactive = group 
+        inactive = group,
     };
 
     require('lualine').setup({
