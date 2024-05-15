@@ -1,5 +1,20 @@
 local M = {};
 
+M.setup_lsp = function()
+    local lsps = {
+        'go',
+        'rust',
+        'lua',
+        'php',
+        'html',
+        'ts'
+    };
+
+    for _, lsp in ipairs(lsps) do
+        require('plugins.lsp.' .. lsp).setup();
+    end
+end
+
 M.init = function()
     return {
         'neovim/nvim-lspconfig',
@@ -13,52 +28,19 @@ end
 M.setup = function()
     local lsps = {
         'lua_ls',
+        'gopls',
         'rust_analyzer',
         'phpactor',
-        'yamlls',
         'html',
         'tsserver',
-        'volar'
+        'volar',
     };
     require('mason').setup();
     require('mason-lspconfig').setup({
         ensure_installed = lsps
     });
-    local capabilities = require('cmp_nvim_lsp').default_capabilities();
 
-    local lspconfig = require('lspconfig');
-    lspconfig.lua_ls.setup {
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { 'vim' }
-                }
-            }
-        },
-        capabilities = capabilities
-    }
-    -- TODO: Fix this vuejs thing
-    lspconfig.volar.setup = {
-        capabilities = capabilities,
-    };
-    lspconfig.rust_analyzer.setup {
-        capabilities = capabilities
-    }
-    lspconfig.phpactor.setup {
-        capabilities = capabilities
-    }
-
-    lspconfig.tsserver.setup {
-        capabilities = capabilities
-    }
-
-    lspconfig.html.setup = {
-        capabilities = capabilities
-    }
-
-    lspconfig.bufls.setup {
-        capabilities = capabilities
-    }
+    M.setup_lsp();
 
     vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "LSP: Show Diagnostics" })
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "LSP: Goto Previous Diagnostics" })
@@ -79,7 +61,8 @@ M.setup = function()
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts, { desc = "LSP: Goto Declaration" })
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts, { desc = "LSP: Goto Definition" })
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts, { desc = "LSP: Hover" })
-            vim.keymap.set('n', 'gi', function() telescope_builtin.lsp_implementations() end, opts, { desc = "LSP: Show Implementations" })
+            vim.keymap.set('n', 'gi', function() telescope_builtin.lsp_implementations() end, opts,
+                { desc = "LSP: Show Implementations" })
             vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts, { desc = "LSP: Signature Help" })
             vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts,
                 { desc = "LSP: Add Workspace Folder" })
@@ -91,7 +74,8 @@ M.setup = function()
             vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts, { desc = "LSP: Type Definitions" });
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts, { desc = "LSP: Rename" });
             vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts, { desc = "LSP: Code Actions" });
-            vim.keymap.set('n', 'gr', function () telescope_builtin.lsp_references() end, opts, { desc = "LSP: References" });
+            vim.keymap.set('n', 'gr', function() telescope_builtin.lsp_references() end, opts,
+                { desc = "LSP: References" });
             vim.keymap.set('n', '<leader>f', function()
                 vim.lsp.buf.format { async = true }
             end, opts, { desc = "LSP: Format" });
