@@ -3,6 +3,7 @@ local M = {};
 -- Register Your Plugins Here
 local plugins = {
     'plugins.mini',
+    'plugins.barbar',
     'plugins.nvim-tree',
     'plugins.tree-sitter',
     'plugins.telescope',
