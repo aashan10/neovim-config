@@ -10,7 +10,6 @@ local plugins = {
     'plugins.git-signs',
     'plugins.lazy-git',
     'plugins.zen-mode',
-    'plugins.themes',
     'plugins.nvim-cmp',
     'plugins.lsp',
     'plugins.harpoon',
@@ -24,6 +23,7 @@ local plugins = {
     'plugins.tmux',
     'plugins.anyman',
     'plugins.outline',
+    'plugins.colorizer',
 };
 
 

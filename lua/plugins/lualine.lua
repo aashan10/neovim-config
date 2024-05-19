@@ -11,21 +11,17 @@ end
 
 
 M.setup = function()
-    local colors = {
-        text = '#cccccc',
-        darkGray = '#393939',
-        lightGray = '#4d4d4d',
-    }
+    local colors = require('user.theme').colors;
 
     local highlighted = {
-        bg = colors.darkGray,
-        fg = colors.text,
+        bg = colors.comments,
+        fg = colors.bg,
         gui = 'bold'
     }
 
     local normal = {
-        bg = colors.darkGray,
-        fg = colors.text,
+        bg = colors.gray,
+        fg = colors.fg,
     }
 
     local group = {
@@ -54,9 +50,16 @@ M.setup = function()
         },
         sections = {
             lualine_a = { 'mode' },
-            lualine_b = { 'branch', 'diff', 'diagnostics' },
-            lualine_c = { 'searchcount', 'selectioncount' },
-            lualine_x = { 'encoding', 'filetype' },
+            lualine_b = { 'branch', 'diagnostics' },
+            lualine_c = {
+                {
+                    'filename',
+                    path = 1
+                },
+                'searchcount',
+                'selectioncount'
+            },
+            lualine_x = { 'encoding' },
             lualine_y = { 'location' },
             lualine_z = { 'progress' },
         },

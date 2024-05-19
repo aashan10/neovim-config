@@ -6,7 +6,7 @@ M.setup_globals = function()
 end
 
 M.after_plugins = function()
-
+    require("user.theme").setup();
 end
 
 return M;

@@ -24,8 +24,9 @@ end
 
 
 M.setup = function()
-    vim.keymap.set('n', '<Leader>tm', function () M.tmux_windows() end, { desc = 'Show Active Projects' });
-    vim.keymap.set('n', '<Leader>op', function () M.open_project() end, { desc = 'Open Project' });
+    vim.keymap.set('n', '<Leader>tm', function () M.tmux_windows() end, { desc = 'TMUX: Show Active Projects' });
+    vim.keymap.set('n', '<Leader>tt', function () M.toggle_status() end, { desc = 'TMUX: Toggle Status Bar' });
+    vim.keymap.set('n', '<Leader>op', function () M.open_project() end, { desc = 'TMUX: Open Project' });
 end
 
 M.tmux_windows = function()
@@ -95,8 +96,19 @@ M.open_project = function ()
     vim.cmd("silent !tmux send-keys 'cd " .. project_path .. " && clear' Enter");
     vim.cmd("silent !tmux select-pane -t 0");
     vim.cmd("silent !tmux resize-pane -D 10");
+end
 
+M.toggle_status = function()
 
+    local status  = M.run_command("tmux show -s status");
+
+    print(vim.inspect(status));
+
+    if status[1] == "status off" then
+        vim.cmd("silent !tmux set status on");
+    else
+        vim.cmd("silent !tmux set status off");
+    end
 end
 
 return M;
