@@ -12,12 +12,17 @@ end
 M.setup = function()
     require("nvim-tree").setup({
         filters = {
-            dotfiles = true
+            dotfiles = false,
         },
+        view = {
+            centralize_selection = true,
+            width = 50,
+        }
     });
 
     vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree: Toggle" });
     vim.keymap.set("n", "<leader>.", "<cmd>NvimTreeFocus<CR>", { desc = "NvimTree: Focus" });
+    vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "NvimTree: Find File" });
 
     local api = require('nvim-tree.api');
 

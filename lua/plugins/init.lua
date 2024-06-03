@@ -2,6 +2,7 @@ local M = {};
 
 -- Register Your Plugins Here
 local plugins = {
+    'plugins.github-theme',
     'plugins.mini',
     'plugins.barbar',
     'plugins.nvim-tree',
