@@ -19,8 +19,8 @@ M.setup = function()
     }
 
     local highlighted = {
-        bg = '#1c343f',
-        fg = '#cccccc',
+        bg = '#cccccc',
+        fg = '#000000',
     }
 
     local group = {

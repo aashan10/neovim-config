@@ -21,6 +21,8 @@ M.setup = function()
     set('n', 'bd', '<cmd>BufferClose<CR>', { desc = 'Close buffer' });
     set('n', '<leader>bp', '<cmd>BufferPick<CR>', { desc = 'Pick buffer' });
 
+    -- set highlight groups 
+    vim.api.nvim_set_hl(0, 'BufferCurrent', { fg = '#cccccc', bg = '#1a1f27', bold = true });
 end
 
 return M;
