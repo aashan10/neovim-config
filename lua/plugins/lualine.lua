@@ -11,17 +11,16 @@ end
 
 
 M.setup = function()
-    local colors = require('user.theme').colors;
 
-    local highlighted = {
-        bg = colors.comments,
-        fg = colors.bg,
+    local normal = {
+        bg = '#22272f',
+        fg = '#cccccc',
         gui = 'bold'
     }
 
-    local normal = {
-        bg = colors.gray,
-        fg = colors.fg,
+    local highlighted = {
+        bg = '#1c343f',
+        fg = '#cccccc',
     }
 
     local group = {
