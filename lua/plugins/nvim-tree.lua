@@ -17,6 +17,9 @@ M.setup = function()
         view = {
             centralize_selection = true,
             width = 50,
+        },
+        update_focused_file = {
+            enable = true
         }
     });
 
