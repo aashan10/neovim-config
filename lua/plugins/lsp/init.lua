@@ -76,7 +76,7 @@ M.setup = function()
             vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts, { desc = "LSP: Code Actions" });
             vim.keymap.set('n', 'gr', function() telescope_builtin.lsp_references() end, opts,
                 { desc = "LSP: References" });
-            vim.keymap.set('n', '<leader>f', function()
+            vim.keymap.set('n', '<leader>lf', function()
                 vim.lsp.buf.format { async = true }
             end, opts, { desc = "LSP: Format" });
         end,

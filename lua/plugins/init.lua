@@ -25,6 +25,7 @@ local plugins = {
     'plugins.anyman',
     'plugins.outline',
     'plugins.colorizer',
+    'plugins.conform',
 };
 
 
