@@ -34,6 +34,12 @@ M.setup = function()
 
         suggestion = {
             auto_trigger = true,
+            keymap = {
+                accept = '<C-Right>',
+                reject = '<C-x>',
+                next = '<C-n>',
+                prev = '<C-p>'
+            }
         },
     });
 
@@ -49,7 +55,6 @@ M.setup = function()
         function()
             local actions = require('CopilotChat.actions');
             require('CopilotChat.integrations.telescope').pick(actions.prompt_actions());
-
         end,
         { noremap = true, silent = true, desc = 'Copilot: Open Panel (File)' }
     );
@@ -57,7 +62,6 @@ M.setup = function()
         function()
             local actions = require('CopilotChat.actions');
             require('CopilotChat.integrations.telescope').pick(actions.help_actions());
-
         end,
         { noremap = true, silent = true, desc = 'Copilot: Open Panel (File)' }
     );
