@@ -11,3 +11,4 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.opt.wrap = false
 vim.opt.cmdheight = 0
+vim.opt.clipboard = "unnamedplus"
