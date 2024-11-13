@@ -1,5 +1,3 @@
----@diagnostic disable: trailing-space
-
 local M = {};
 
 M.init = function()
@@ -12,34 +10,53 @@ end
 
 
 M.setup = function()
-
     local conform = require('conform');
-    conform.setup({ 
-        formatters_by_ft = { 
-            php = { "php" }, 
-        }, 
-        format_on_save = { 
-            lsp_fallback = true, 
-            async = false, 
-            timeout_ms = 1000, 
-        }, 
-        notify_on_error = true, 
-        formatters = { 
-            php = { 
-                command = "php-cs-fixer", 
-                args = { 
-                    "fix", 
+    conform.setup({
+        formatters_by_ft = {
+            php = { "php" },
+        },
+        notify_on_error = true,
+        formatters = {
+            php = {
+                command = "php-cs-fixer",
+                args = {
+                    "fix",
                     "--rules=@Symfony",
                     "$FILENAME",
-                }, 
+                },
                 stdin = false,
             }
-        }
+        },
+        format_on_save = function(bufnr)
+            if vim.b[bufnr].disable_autoformat or vim.g.disable_autoformat then
+                return
+            end
+            return {
+                timeout_ms = 1000,
+                async = false,
+                lsp_fallback = true,
+            }
+        end
     })
 
     vim.keymap.set('n', '<leader>f', conform.format, { desc = "Format" });
-
+    vim.api.nvim_create_user_command("FormatDisable", function(args)
+        if args.bang then
+            -- FormatDisable! will disable formatting just for this buffer
+            vim.b.disable_autoformat = true
+        else
+            vim.g.disable_autoformat = true
+        end
+    end, {
+        desc = "Disable autoformat-on-save",
+        bang = true,
+    })
+    vim.api.nvim_create_user_command("FormatEnable", function()
+        vim.b.disable_autoformat = false
+        vim.g.disable_autoformat = false
+    end, {
+        desc = "Re-enable autoformat-on-save",
+    })
 end
 
 return M;
-
