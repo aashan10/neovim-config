@@ -12,3 +12,9 @@ vim.wo.relativenumber = true
 vim.opt.wrap = false
 vim.opt.cmdheight = 0
 vim.opt.clipboard = "unnamedplus"
+
+vim.filetype.add({
+    pattern = {
+        [".*%.blade%.php"] = "blade"
+    }
+})

@@ -8,6 +8,11 @@ M.setup = function()
         capabilities = capabilities,
         init_options = {
             ['symfony.enabled'] = true,
+        },
+        filetypes = {
+            'php',
+            'blade',
+            'twig'
         }
     }
     local twiggy = vim.fn.stdpath('data') .. '/mason/bin/twiggy-language-server';
