@@ -20,16 +20,18 @@ M.setup = function()
     });
     require('mini.move').setup({
         mappings = {
-            left  = "<C-h>",
-            right = "<C-l>",
-            up    = "<C-k>",
-            down  = "<C-j>",
+            left  = "<C-S-Left>",
+            right = "<C-S-Right>",
+            up    = "<C-S-Up>",
+            down  = "<C-S-Down>",
         }
     });
     require('mini.indentscope').setup();
     require('mini.surround').setup();
     require('mini.align').setup();
     require('mini.comment').setup();
+    require('mini.cursorword').setup();
+    require('mini.splitjoin').setup();
 end
 
 return M;

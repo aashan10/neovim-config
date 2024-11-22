@@ -18,11 +18,11 @@ end
 
 
 M.setup = function()
-    vim.keymap.set('n', '<Leader>am', function () M.anyman() end, { desc = 'Anyman Toolkit' });
+    vim.keymap.set('n', '<Leader>am', function() M.anyman() end, { desc = 'Anyman Toolkit' });
 end
 
 
-M.anyman = function ()
+M.anyman = function()
     if not is_any_project() then
         print("Not an Anyman project");
         return;
@@ -34,7 +34,7 @@ M.anyman = function ()
     local execute = require('plugins.tmux').run_command;
     local path = vim.fn.getcwd();
 
-    local result = execute("cd " .. path .."/../../ && any commands");
+    local result = execute("cd " .. path .. "/../../ && any commands");
 
 
 
@@ -79,5 +79,3 @@ M.anyman = function ()
 end
 
 return M;
-
-

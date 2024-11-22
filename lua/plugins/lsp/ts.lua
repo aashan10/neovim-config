@@ -6,7 +6,7 @@ M.setup = function()
 
     local tsserver = vim.fn.stdpath('data') .. '/mason/bin/typescript-language-server';
 
-    lspconfig.tsserver.setup {
+    lspconfig.ts_ls.setup {
         capabilities = capabilities,
         cmd = { tsserver, '--stdio' },
         init_options = {

@@ -32,7 +32,7 @@ M.setup = function()
         'rust_analyzer',
         'phpactor',
         'html',
-        'tsserver',
+        'ts_ls',
         'volar',
     };
     require('mason').setup();
