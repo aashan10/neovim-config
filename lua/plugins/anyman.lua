@@ -1,15 +1,3 @@
-local function is_any_project()
-    local path = vim.fn.getcwd();
-    local f = io.open(path .. "/../../any", "r");
-    if f ~= nil then
-        io.close(f);
-        return true;
-    end
-    return false;
-end
-
-
-
 local M = {};
 
 M.init = function()
@@ -21,9 +9,22 @@ M.setup = function()
     vim.keymap.set('n', '<Leader>am', function() M.anyman() end, { desc = 'Anyman Toolkit' });
 end
 
+M.is_any_project = function()
+    local path = vim.fn.getcwd();
+    local f = io.open(path .. "/../../any", "r");
+    if f ~= nil then
+        io.close(f);
+        return true;
+    end
+    return false;
+end
+
+M.get_anyman_path = function()
+    return vim.fn.getcwd() .. "/../../";
+end
 
 M.anyman = function()
-    if not is_any_project() then
+    if not M.is_any_project() then
         print("Not an Anyman project");
         return;
     end

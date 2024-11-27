@@ -14,12 +14,8 @@ M.setup = function()
     conform.setup({
         formatters_by_ft = {
             php = { "php" },
-            blade = { "blade-formatter" }
-        },
-        format_on_save = {
-            lsp_fallback = true,
-            async = false,
-            timeout_ms = 1000,
+            blade = { "blade-formatter" },
+            twig = { "twig" }
         },
         notify_on_error = true,
         formatters = {
@@ -31,6 +27,14 @@ M.setup = function()
                     "$FILENAME",
                 },
                 stdin = false,
+            },
+            twig = {
+                command = "twig-cs-fixer",
+                args = {
+                    "$FILENAME",
+                    "--profile=nunjucks",
+                    "--reformat"
+                }
             }
         },
         format_on_save = function(bufnr)

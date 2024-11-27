@@ -7,7 +7,8 @@ M.setup_lsp = function()
         'lua',
         'php',
         'html',
-        'ts'
+        'ts',
+        "twig"
     };
 
     for _, lsp in ipairs(lsps) do
@@ -34,6 +35,7 @@ M.setup = function()
         'html',
         'ts_ls',
         'volar',
+        'twiggy_language_server'
     };
     require('mason').setup();
     require('mason-lspconfig').setup({
