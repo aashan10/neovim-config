@@ -13,7 +13,7 @@ M.setup = function()
     local symfonyConsolePath = "bin/console";
 
     if anyman.is_any_project() then
-        phpExecutable = "docker compose -f " .. anyman.get_anyman_path() .. "docker-compose.yml exec -it pimcore";
+        phpExecutable = "docker compose -f " .. anyman.get_anyman_path() .. "docker-compose.yml exec -it pimcore php";
         symfonyConsolePath = "/var/www/html/bin/console";
     end
 
