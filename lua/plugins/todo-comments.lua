@@ -3,7 +3,8 @@ local M = {};
 -- This function will be used by lazy to load the module
 M.init = function()
     return {
-        'folke/todo-comments.nvim'
+        'folke/todo-comments.nvim',
+        event = "BufEnter"
     }
 end
 

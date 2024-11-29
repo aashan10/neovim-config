@@ -3,6 +3,9 @@ local M = {};
 M.init = function()
     return {
         "nvim-tree/nvim-tree.lua",
+        keys = {
+            { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Nvim Tree" }
+        },
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         }

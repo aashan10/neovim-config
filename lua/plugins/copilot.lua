@@ -4,6 +4,7 @@ local M = {};
 M.init = function()
     return {
         'CopilotC-Nvim/CopilotChat.nvim',
+        event = "BufEnter",
         dependencies = {
             'zbirenbaum/copilot.lua'
         }

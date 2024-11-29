@@ -2,7 +2,8 @@ local M = {};
 
 M.init = function()
     return {
-        'lewis6991/gitsigns.nvim'
+        'lewis6991/gitsigns.nvim',
+        event = "BufEnter"
     }
 end
 
@@ -22,4 +23,3 @@ M.setup = function()
 end
 
 return M;
-

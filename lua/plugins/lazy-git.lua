@@ -5,7 +5,8 @@ M.init = function()
         'kdheepak/lazygit.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim'
-        }
+        },
+        event = "VimEnter"
     }
 end
 

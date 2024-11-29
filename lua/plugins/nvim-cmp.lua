@@ -11,7 +11,8 @@ M.init = function()
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
             'rafamadriz/friendly-snippets'
-        }
+        },
+        event = "InsertEnter"
     }
 end
 
@@ -71,7 +72,7 @@ M.setup = function()
                     fallback()
                 end
             end),
-       },
+        },
         window = {
             completion = cmp.config.window.bordered(),
             documentation = cmp.config.window.bordered()

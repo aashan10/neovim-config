@@ -1,16 +1,18 @@
 local M = {};
 
-M.init = function ()
+
+
+M.init = function()
     return {
-        'hedyhli/outline.nvim'
+        'hedyhli/outline.nvim',
+        event = "BufEnter"
     }
 end
 
-M.setup = function ()
+M.setup = function()
     require('outline').setup({
     });
-
-    vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { desc = "Outline -- see :h :Outline" });
+    vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Outline -- see :h :Outline" });
 end
 
 return M;

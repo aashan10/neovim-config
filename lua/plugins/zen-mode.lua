@@ -2,7 +2,8 @@ local M = {};
 
 M.init = function()
     return {
-        'folke/zen-mode.nvim'
+        'folke/zen-mode.nvim',
+        event = "VeryLazy"
     }
 end
 

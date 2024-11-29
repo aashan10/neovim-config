@@ -2,7 +2,8 @@ local M = {};
 
 M.init = function()
     return {
-        "nvim-treesitter/nvim-treesitter"
+        "nvim-treesitter/nvim-treesitter",
+        event = "BufEnter"
     }
 end
 

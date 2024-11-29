@@ -10,7 +10,8 @@ M.init = function()
                     'nvim-neotest/nvim-nio'
                 }
             },
-        }
+        },
+        event = "VimEnter"
     }
 end
 
@@ -29,7 +30,7 @@ M.load_dap_config = function()
         if config ~= nil then
             -- dap.adapters.php = config.adapters
 
-            local starters =  {};
+            local starters = {};
 
             for _, conf in pairs(config.configurations) do
                 -- push config to starters
