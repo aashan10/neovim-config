@@ -12,14 +12,19 @@ M.setup = function()
         filetypes = {
             'php',
             'blade',
-            'twig'
         }
     }
     local twiggy = vim.fn.stdpath('data') .. '/mason/bin/twiggy-language-server';
+    local psalm = vim.fn.stdpath('data') .. '/mason/packages/psalm/vendor/bin/psalm-language-server';
 
     lspconfig.twiggy_language_server.setup {
         capabilities = capabilities,
         cmd = { twiggy, '--stdio' },
+    }
+
+    lspconfig.psalm.setup {
+        capabilities = capabilities,
+        cmd = { psalm }
     }
 end
 

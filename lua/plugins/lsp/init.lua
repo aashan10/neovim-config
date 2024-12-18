@@ -35,6 +35,7 @@ M.setup = function()
         'html',
         'ts_ls',
         'volar',
+        'psalm',
         'twiggy_language_server'
     };
     require('mason').setup();
