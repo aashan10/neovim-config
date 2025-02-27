@@ -3,11 +3,12 @@
 $config = new PhpCsFixer\Config();
 
 $config->setRules([
-    '@Symfony' => true,
+    '@Symfony'               => true,
     'binary_operator_spaces' => [
         'operators' => [
-            '=>' => 'align_single_space_minimal_by_scope'
-        ]
+            '=>' => 'align_single_space_minimal_by_scope',
+            '='  => 'align',
+        ],
     ],
 ]);
 

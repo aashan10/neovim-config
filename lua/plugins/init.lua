@@ -27,7 +27,7 @@ local plugins = {
     'plugins.outline',
     'plugins.colorizer',
     'plugins.conform',
-    'plugins.ai',
+    -- 'plugins.ai',
 };
 
 
