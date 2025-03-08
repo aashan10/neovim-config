@@ -5,7 +5,7 @@ local plugins = {
     'plugins.github-theme',
     'plugins.mini',
     'plugins.barbar',
-    'plugins.nvim-tree',
+    -- 'plugins.nvim-tree',
     'plugins.tree-sitter',
     'plugins.telescope',
     'plugins.git-signs',
