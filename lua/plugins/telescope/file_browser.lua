@@ -16,6 +16,7 @@ M.config = function()
     return {
         hijack_netrw = true,
         grouped = true,
+        respect_gitignore = false,
         mappings = {
             ['n'] = {
                 --  map delete to 'Del' key
