@@ -28,8 +28,8 @@ M.setup = function()
     });
 
 
-    vim.api.nvim_set_keymap('n', '<Leader>e', '<cmd>lua require("plugins.mini.files").toggle()<CR>',
-        { noremap = true, silent = true });
+    -- vim.api.nvim_set_keymap('n', '<Leader>e', '<cmd>lua require("plugins.mini.files").toggle()<CR>',
+    --     { noremap = true, silent = true });
 end
 
 return M;

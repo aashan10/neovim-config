@@ -11,7 +11,7 @@ M.init = function()
         'echasnovski/mini.comment',
         'echasnovski/mini.cursorword',
         'echasnovski/mini.splitjoin',
-        'echasnovski/mini.files',
+        -- 'echasnovski/mini.files',
     }
 end
 
@@ -28,7 +28,7 @@ M.setup = function()
     require('plugins.mini.comment').setup();
     require('plugins.mini.cursorword').setup();
     require('plugins.mini.splitjoin').setup();
-    require('plugins.mini.files').setup();
+    -- require('plugins.mini.files').setup();
 end
 
 return M;
