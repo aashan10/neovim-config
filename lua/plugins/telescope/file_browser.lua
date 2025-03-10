@@ -11,8 +11,18 @@ M.dependencies = function()
 end
 
 M.config = function()
+    local telescope = require('telescope');
+    local fb_actions = telescope.extensions.file_browser.actions;
     return {
         hijack_netrw = true,
+        grouped = true,
+        mappings = {
+            ['n'] = {
+                --  map delete to 'Del' key
+                ['<leader>d'] = fb_actions.remove
+
+            }
+        }
     }
 end
 
