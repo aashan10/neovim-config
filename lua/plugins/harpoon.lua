@@ -30,12 +30,12 @@ M.setup = function()
             previewer = conf.file_previewer({}),
             sorter = conf.generic_sorter({}),
             attach_mappings = function(prompt_buffer_nr, map)
-                map("n", "<C-x>", function ()
+                map("n", "<C-x>", function()
                     local state = require('telescope.actions.state')
                     local selected = state.get_selected_entry()
                     local picker = state.get_current_picker(prompt_buffer_nr)
 
-                    harpoon:list():removeAt(selected.index)
+                    harpoon:list():remove_at(selected.index)
                     picker:refresh()
                 end)
 

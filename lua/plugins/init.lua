@@ -18,7 +18,7 @@ local plugins = {
     'plugins.whichkey',
     'plugins.dap',
     'plugins.ultimate-autopairs',
-    'plugins.dressing',
+    -- 'plugins.dressing',
     'plugins.lualine',
     'plugins.todo-comments',
     'plugins.copilot',
@@ -28,6 +28,7 @@ local plugins = {
     'plugins.colorizer',
     'plugins.conform',
     -- 'plugins.ai',
+    'plugins.refactoring'
 };
 
 

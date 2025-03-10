@@ -6,6 +6,7 @@ local plugins = {
     'plugins.telescope.live_grep_args',
     'plugins.telescope.file_browser',
     'plugins.telescope.frecency',
+    'plugins.telescope.ui_select',
 };
 
 M.init = function()
