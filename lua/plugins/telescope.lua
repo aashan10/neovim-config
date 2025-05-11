@@ -7,6 +7,7 @@ local plugins = {
     'plugins.telescope.file_browser',
     'plugins.telescope.frecency',
     'plugins.telescope.ui_select',
+    'plugins.telescope.media',
 };
 
 M.init = function()

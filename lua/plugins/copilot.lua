@@ -19,6 +19,9 @@ M.setup = function()
     local copilot = require('copilot');
 
     copilot.setup({
+        server = {
+            type = 'binary'
+        },
         panel = {
             auto_refresh = true,
             layout = {
@@ -44,29 +47,6 @@ M.setup = function()
             }
         },
     });
-
-    local chat = require('CopilotChat');
-    chat.setup();
-
-
-
-    -- Keymap to open the copilot panel
-    vim.keymap.set('n', '<leader>cp', function() require("copilot.panel").open() end,
-        { noremap = true, silent = true, desc = 'Copilot: Open Panel' });
-    vim.keymap.set({ 'n', 'v' }, '<leader>cf',
-        function()
-            local actions = require('CopilotChat.actions');
-            require('CopilotChat.integrations.telescope').pick(actions.prompt_actions());
-        end,
-        { noremap = true, silent = true, desc = 'Copilot: Open Panel (File)' }
-    );
-    vim.keymap.set({ 'n', 'v' }, '<leader>ch',
-        function()
-            local actions = require('CopilotChat.actions');
-            require('CopilotChat.integrations.telescope').pick(actions.help_actions());
-        end,
-        { noremap = true, silent = true, desc = 'Copilot: Open Panel (File)' }
-    );
 end
 
 return M;
