@@ -40,7 +40,8 @@ M.setup = function()
     };
     require('mason').setup();
     require('mason-lspconfig').setup({
-        ensure_installed = lsps
+        ensure_installed = lsps,
+        automatic_enable = false
     });
 
     M.setup_lsp();
