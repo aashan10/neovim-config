@@ -30,6 +30,8 @@ end
 
 M.setup = function()
     local telescope = require('telescope');
+    local actions = require("telescope.actions");
+    local action_state = require("telescope.actions.state");
 
     local plugin_configs = {};
     local plugin_names = {};
@@ -42,8 +44,34 @@ M.setup = function()
         end
     end
 
+
+    local function copy_file_path(bufnr, relative)
+        local entry = action_state.get_selected_entry()
+        if entry then
+            local path = entry.path or entry.filename
+            if path then
+                local final_path = relative and vim.fn.fnamemodify(path, ":.") or vim.fn.fnamemodify(path, ":p")
+                vim.fn.setreg("+", final_path) -- Copy to system clipboard
+                print("Copied (" .. (relative and "relative" or "absolute") .. "): " .. final_path)
+            end
+        end
+        actions.close(bufnr)
+    end
+
     telescope.setup({
-        extensions = plugin_configs
+        extensions = plugin_configs,
+        defaults = {
+            mappings = {
+                i = {
+                    ["<C-y>"] = function(bufnr) copy_file_path(bufnr, true) end,
+                    ["<C-S-y>"] = function(bufnr) copy_file_path(bufnr, false) end,
+                },
+                n = {
+                    ["<C-y>"] = function(bufnr) copy_file_path(bufnr, true) end,
+                    ["<C-S-y>"] = function(bufnr) copy_file_path(bufnr, false) end,
+                }
+            }
+        }
     });
 
     for _, plugin_name in ipairs(plugin_names) do
