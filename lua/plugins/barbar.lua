@@ -1,4 +1,3 @@
-
 local M = {};
 
 M.init = function()
@@ -8,11 +7,7 @@ M.init = function()
 end
 
 M.setup = function()
-    require('barbar').setup({
-        sidebar_filetypes = {
-            NvimTree = true,
-        }
-    });
+    require('barbar').setup({});
 
     local set = vim.keymap.set;
 
@@ -21,9 +16,20 @@ M.setup = function()
     set('n', 'bd', '<cmd>BufferClose<CR>', { desc = 'Close buffer' });
     set('n', '<leader>bp', '<cmd>BufferPick<CR>', { desc = 'Pick buffer' });
 
-    -- set highlight groups 
-    vim.api.nvim_set_hl(0, 'BufferCurrent', { fg = '#cccccc', bg = '#1a1f27', bold = true });
+    -- set highlight groups
+
+    local barbar_groups = {
+        'TabLineFill',
+        'BufferDefaultTabpages',
+        'BufferTabpageFill',
+        'BufferDefaultTabpagesSep',
+    }
+
+    for _, group in ipairs(barbar_groups) do
+        vim.api.nvim_set_hl(0, group, { bg = 'NONE', ctermbg = 'NONE' });
+    end
+
+    vim.api.nvim_set_hl(0, 'BufferDefaultCurrent', { bg = '#ffffff', fg = '#000000', blend = 90 });
 end
 
 return M;
-
