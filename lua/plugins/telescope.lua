@@ -2,7 +2,7 @@ local M = {};
 
 local plugins = {
     'plugins.telescope.dap',
-    'plugins.telescope.fzf',
+    -- 'plugins.telescope.fzf',
     'plugins.telescope.live_grep_args',
     'plugins.telescope.file_browser',
     'plugins.telescope.frecency',

@@ -33,8 +33,8 @@ M.setup = function()
         'rust_analyzer',
         'phpactor',
         'html',
-        'ts_ls',
-        'volar',
+        'tsgo',
+        'vue_language_server',
         'psalm',
         'twiggy_language_server'
     };

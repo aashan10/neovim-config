@@ -6,6 +6,7 @@ local M = {
 M.dependencies = function()
     return {
         'nvim-telescope/telescope-fzf-native.nvim',
+	'nvim-telescope/telescope-fzf.nvim', 
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
     }
 end

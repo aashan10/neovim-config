@@ -29,8 +29,8 @@ M.setup = function()
                 ratio = 0.4
             },
             keymap = {
-                jump_prev = '<C-p>',
-                jump_next = '<C-n>',
+                -- jump_prev = '<C-p>',
+                -- jump_next = '<C-n>',
                 accept = '<CR>',
                 refresh = '<C-r>',
                 open = '<leader>cp'

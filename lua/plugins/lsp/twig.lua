@@ -17,16 +17,16 @@ M.setup = function()
         symfonyConsolePath = "/var/www/html/bin/console";
     end
 
-    lspconfig.twiggy_language_server.setup {
+    vim.lsp.enable('twiggy_language_server');
+    vim.lsp.config('twiggy_language_server', {
         settings = {
             twiggy = {
                 framework = "symfony",
                 phpExecutable = phpExecutable,
                 symfonyConsolePath = symfonyConsolePath
             }
-        },
-        capabilities = capabilities
-    }
+        }
+    })
 end
 
 return M;
