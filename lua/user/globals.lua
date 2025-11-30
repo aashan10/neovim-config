@@ -12,6 +12,9 @@ vim.wo.relativenumber = true
 vim.opt.wrap = false
 vim.opt.cmdheight = 0
 vim.opt.clipboard = "unnamedplus"
+vim.opt.signcolumn = "yes"
+vim.opt.winborder = "rounded"
+
 
 vim.filetype.add({
     pattern = {

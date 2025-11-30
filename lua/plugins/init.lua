@@ -2,23 +2,17 @@ local M = {};
 
 -- Register Your Plugins Here
 local plugins = {
-    'plugins.github-theme',
     'plugins.mini',
     'plugins.barbar',
-    -- 'plugins.nvim-tree',
     'plugins.tree-sitter',
     'plugins.telescope',
     'plugins.git-signs',
     'plugins.lazy-git',
-    'plugins.zen-mode',
     'plugins.nvim-cmp',
     'plugins.lsp',
-    'plugins.blink',
     'plugins.harpoon',
     'plugins.whichkey',
-    'plugins.dap',
     'plugins.ultimate-autopairs',
-    -- 'plugins.dressing',
     'plugins.lualine',
     'plugins.todo-comments',
     'plugins.copilot',
@@ -27,8 +21,8 @@ local plugins = {
     'plugins.outline',
     'plugins.colorizer',
     'plugins.conform',
-    -- 'plugins.ai',
-    'plugins.refactoring'
+    'plugins.refactoring',
+    'plugins.themes',
 };
 
 

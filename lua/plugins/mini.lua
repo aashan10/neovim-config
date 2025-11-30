@@ -11,7 +11,6 @@ M.init = function()
         'echasnovski/mini.comment',
         'echasnovski/mini.cursorword',
         'echasnovski/mini.splitjoin',
-        -- 'echasnovski/mini.files',
     }
 end
 

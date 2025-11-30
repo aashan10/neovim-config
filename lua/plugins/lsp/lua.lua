@@ -33,6 +33,8 @@ M.setup = function()
             Lua = {}
         }
     })
+
+    vim.lsp.enable('lua_ls');
 end
 
 return M;
