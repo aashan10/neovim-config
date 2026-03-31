@@ -25,8 +25,6 @@ local plugins = {
     'plugins.themes',
 };
 
-
-
 local function get_plugins()
     local p = {};
     for _, plugin in pairs(plugins) do
@@ -35,16 +33,19 @@ local function get_plugins()
     return p;
 end
 
-local function get_plugin_configs()
-    local configs = {};
+local function collect_specs()
+    local specs = {};
     for _, plugin in pairs(get_plugins()) do
-        local plugin_config = plugin.init();
-
-        if plugin_config ~= nil then
-            table.insert(configs, plugin.init());
+        local plugin_specs = plugin.init();
+        if plugin_specs == nil then goto continue end
+        if vim.islist(plugin_specs) then
+            vim.list_extend(specs, plugin_specs);
+        else
+            table.insert(specs, plugin_specs);
         end
+        ::continue::
     end
-    return configs;
+    return specs;
 end
 
 local function setup_plugins()
@@ -53,30 +54,8 @@ local function setup_plugins()
     end
 end
 
-local function initialize_lazy()
-    local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
-    if not vim.loop.fs_stat(lazy_path) then
-        vim.fn.system({
-            "git",
-            "clone",
-            "--filter=blob:none",
-            "https://github.com/folke/lazy.nvim.git",
-            "--branch=stable",
-            lazy_path
-        });
-    end
-
-    vim.opt.rtp:prepend(lazy_path);
-end
-
-local function setup_lazy(options)
-    require("lazy").setup(options)
-end
-
 M.setup = function()
-    initialize_lazy();
-    setup_lazy(get_plugin_configs());
+    vim.pack.add(collect_specs());
     setup_plugins();
 end
 

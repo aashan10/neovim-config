@@ -2,10 +2,7 @@ local M = {};
 
 
 M.init = function()
-    return {
-        'norcalli/nvim-colorizer.lua',
-        event = "BufEnter"
-    }
+    return { src = 'https://github.com/norcalli/nvim-colorizer.lua' }
 end
 
 M.setup = function()

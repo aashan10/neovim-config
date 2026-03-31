@@ -1,9 +1,7 @@
 local M = {};
 
 M.init = function()
-    return {
-        'romgrk/barbar.nvim'
-    }
+    return { src = 'https://github.com/romgrk/barbar.nvim' }
 end
 
 M.setup = function()

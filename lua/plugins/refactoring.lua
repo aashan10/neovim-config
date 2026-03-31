@@ -2,11 +2,9 @@ local M = {};
 
 M.init = function()
     return {
-        'ThePrimeagen/refactoring.nvim',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        }
+        { src = 'https://github.com/ThePrimeagen/refactoring.nvim' },
+        { src = 'https://github.com/nvim-lua/plenary.nvim' },
+        { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
     }
 end
 

@@ -3,12 +3,8 @@ local M = {};
 -- This function will be used by lazy to load the module
 M.init = function()
     return {
-        'CopilotC-Nvim/CopilotChat.nvim',
-        branch = 'main',
-        event = "BufEnter",
-        dependencies = {
-            'zbirenbaum/copilot.lua'
-        }
+        { src = 'https://github.com/CopilotC-Nvim/CopilotChat.nvim', version = 'main' },
+        { src = 'https://github.com/zbirenbaum/copilot.lua' },
     }
 end
 

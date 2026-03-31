@@ -3,11 +3,7 @@ local M = {};
 
 -- This function will be used by lazy to load the module
 M.init = function()
-    return {
-        'altermo/ultimate-autopair.nvim',
-        event={'InsertEnter','CmdlineEnter'},
-        branch='v0.6',
-    }
+    return { src = 'https://github.com/altermo/ultimate-autopair.nvim', version = 'v0.6' }
 end
 
 

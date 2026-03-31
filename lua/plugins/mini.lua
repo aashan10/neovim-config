@@ -3,14 +3,14 @@ local M = {};
 -- This function will be used by lazy to load the module
 M.init = function()
     return {
-        'echasnovski/mini.starter',
-        'echasnovski/mini.move',
-        'echasnovski/mini.indentscope',
-        'echasnovski/mini.surround',
-        'echasnovski/mini.align',
-        'echasnovski/mini.comment',
-        'echasnovski/mini.cursorword',
-        'echasnovski/mini.splitjoin',
+        { src = 'https://github.com/echasnovski/mini.starter' },
+        { src = 'https://github.com/echasnovski/mini.move' },
+        { src = 'https://github.com/echasnovski/mini.indentscope' },
+        { src = 'https://github.com/echasnovski/mini.surround' },
+        { src = 'https://github.com/echasnovski/mini.align' },
+        { src = 'https://github.com/echasnovski/mini.comment' },
+        { src = 'https://github.com/echasnovski/mini.cursorword' },
+        { src = 'https://github.com/echasnovski/mini.splitjoin' },
     }
 end
 

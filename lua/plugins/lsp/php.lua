@@ -1,19 +1,10 @@
 local M = {};
 
 M.setup = function()
-    local capabilities = vim.lsp.protocol.make_client_capabilities();
-
-    capabilities.textDocument.prepareTypeHierarchy = {
-        dynamicRegistration = true
-    };
-    capabilities.textDocument.typeHierarchy = {
-        dynamicRegistration = true
-    };
-
     vim.lsp.config('phpantom', {
-        cmd = { '~/.local/bin/phpantom_lsp' },
+        cmd = { 'phpantom_lsp' },
         filetypes = { 'php' },
-        capabilities = capabilities,
+        root_markers = { 'composer.json', '.phpantom.toml' }
     });
     vim.lsp.enable('phpantom');
 

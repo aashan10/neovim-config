@@ -5,7 +5,7 @@ local M = {
 
 M.dependencies = function()
     return {
-        'rebelot/kanagawa.nvim',
+        { src = 'https://github.com/rebelot/kanagawa.nvim' },
     }
 end
 

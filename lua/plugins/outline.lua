@@ -3,10 +3,7 @@ local M = {};
 
 
 M.init = function()
-    return {
-        'hedyhli/outline.nvim',
-        event = "BufEnter"
-    }
+    return { src = 'https://github.com/hedyhli/outline.nvim' }
 end
 
 M.setup = function()

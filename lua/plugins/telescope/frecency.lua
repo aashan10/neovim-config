@@ -5,8 +5,7 @@ local M = {
 
 M.dependencies = function()
     return {
-        'nvim-telescope/telescope-frecency.nvim',
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        { src = 'https://github.com/nvim-telescope/telescope-frecency.nvim' },
     }
 end
 

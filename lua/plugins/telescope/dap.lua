@@ -5,10 +5,7 @@ local M = {
 
 M.dependencies = function()
     return {
-        'nvim-telescope/telescope-dap.nvim',
-        dependencies = {
-
-        }
+        { src = 'https://github.com/nvim-telescope/telescope-dap.nvim' },
     }
 end
 

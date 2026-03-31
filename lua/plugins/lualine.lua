@@ -2,11 +2,9 @@ local M = {};
 
 M.init = function()
     return {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons'
-        }
-    };
+        { src = 'https://github.com/nvim-lualine/lualine.nvim' },
+        { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+    }
 end
 
 

@@ -5,8 +5,7 @@ local M = {
 
 M.dependencies = function()
     return {
-        'nvim-telescope/telescope-ui-select.nvim',
-        dependencies = { "nvim-telescope/telescope.nvim" }
+        { src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim' },
     }
 end
 

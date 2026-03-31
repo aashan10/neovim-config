@@ -9,21 +9,20 @@ local plugins = {
 };
 
 M.init = function()
-    local dependencies = {
-        'nvim-telescope/telescope.nvim',
+    local specs = {
+        { src = 'https://github.com/nvim-telescope/telescope.nvim' },
+        { src = 'https://github.com/nvim-lua/plenary.nvim' },
     };
 
     for _, plugin in ipairs(plugins) do
         local plugin_module = require(plugin);
         if plugin_module.enabled then
-            local plugin_dependencies = plugin_module.dependencies();
-            for _, dependency in ipairs(plugin_dependencies) do
-                table.insert(dependencies, dependency);
-            end
+            local plugin_specs = plugin_module.dependencies();
+            vim.list_extend(specs, plugin_specs);
         end
     end
 
-    return dependencies;
+    return specs;
 end
 
 

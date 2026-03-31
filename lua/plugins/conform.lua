@@ -1,11 +1,7 @@
 local M = {};
 
 M.init = function()
-    return {
-        'stevearc/conform.nvim',
-        lazy = true,
-        event = { "BufReadPre", "BufNewFile" },
-    }
+    return { src = 'https://github.com/stevearc/conform.nvim' }
 end
 
 

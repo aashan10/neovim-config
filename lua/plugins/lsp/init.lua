@@ -18,11 +18,9 @@ end
 
 M.init = function()
     return {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            "mason-org/mason.nvim",
-            "mason-org/mason-lspconfig.nvim",
-        }
+        { src = 'https://github.com/neovim/nvim-lspconfig' },
+        { src = 'https://github.com/mason-org/mason.nvim' },
+        { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
     }
 end
 
@@ -43,6 +41,13 @@ M.setup = function()
     });
 
     M.setup_lsp();
+
+    vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+    });
 
     local keymaps = {
         ['n'] = {

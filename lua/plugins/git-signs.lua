@@ -1,10 +1,7 @@
 local M = {};
 
 M.init = function()
-    return {
-        'lewis6991/gitsigns.nvim',
-        event = "BufEnter"
-    }
+    return { src = 'https://github.com/lewis6991/gitsigns.nvim' }
 end
 
 

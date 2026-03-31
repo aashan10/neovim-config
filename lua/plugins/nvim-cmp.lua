@@ -2,17 +2,14 @@ local M = {};
 
 M.init = function()
     return {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-cmdline',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
-            'rafamadriz/friendly-snippets'
-        },
-        event = "InsertEnter"
+        { src = 'https://github.com/hrsh7th/nvim-cmp' },
+        { src = 'https://github.com/hrsh7th/cmp-buffer' },
+        { src = 'https://github.com/hrsh7th/cmp-path' },
+        { src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
+        { src = 'https://github.com/hrsh7th/cmp-cmdline' },
+        { src = 'https://github.com/L3MON4D3/LuaSnip' },
+        { src = 'https://github.com/saadparwaiz1/cmp_luasnip' },
+        { src = 'https://github.com/rafamadriz/friendly-snippets' },
     }
 end
 

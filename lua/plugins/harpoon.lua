@@ -2,12 +2,9 @@ local M = {}
 
 M.init = function()
     return {
-        'ThePrimeagen/harpoon',
-        branch = 'harpoon2',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
+        { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
+        { src = 'https://github.com/nvim-lua/plenary.nvim' },
+        { src = 'https://github.com/nvim-telescope/telescope.nvim' },
     }
 end
 

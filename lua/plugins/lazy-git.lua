@@ -2,11 +2,8 @@ local M = {};
 
 M.init = function()
     return {
-        'kdheepak/lazygit.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        },
-        event = "VimEnter"
+        { src = 'https://github.com/kdheepak/lazygit.nvim' },
+        { src = 'https://github.com/nvim-lua/plenary.nvim' },
     }
 end
 
