@@ -17,6 +17,11 @@ M.config = function()
         hijack_netrw = true,
         grouped = true,
         respect_gitignore = false,
+        hidden = {
+            file_browser = true,
+            folder_browser = true,
+        },
+        no_ignore = true,
         mappings = {
             ['n'] = {
                 --  map delete to 'Del' key

@@ -31,10 +31,8 @@ M.setup = function()
         'lua_ls',
         'gopls',
         'rust_analyzer',
-        'phpactor',
         'html',
         'tsgo',
-        'vue_language_server',
         'psalm',
         'twiggy_language_server'
     };
