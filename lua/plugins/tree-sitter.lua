@@ -5,7 +5,7 @@ M.init = function()
 end
 
 M.setup = function()
-    require 'nvim-treesitter.configs'.setup {
+    require 'nvim-treesitter.config'.setup {
         ensure_installed = {
         },
         auto_install = true,
@@ -17,15 +17,15 @@ M.setup = function()
         }
     }
 
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs();
-    parser_config.blade = {
+    require "nvim-treesitter.parsers".blade = {
         install_info = {
             url = "https://github.com/EmranMR/tree-sitter-blade",
             files = { "src/parser.c" },
             branch = "main"
         },
         filetype = "blade"
-    }
+
+    };
 end
 
 return M;

@@ -31,7 +31,6 @@ M.setup = function()
         'rust_analyzer',
         'html',
         'tsgo',
-        'psalm',
         'twiggy_language_server'
     };
     require('mason').setup();

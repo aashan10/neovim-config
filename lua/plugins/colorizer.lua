@@ -2,7 +2,7 @@ local M = {};
 
 
 M.init = function()
-    return { src = 'https://github.com/norcalli/nvim-colorizer.lua' }
+    return { src = 'https://github.com/catgoose/nvim-colorizer.lua' }
 end
 
 M.setup = function()

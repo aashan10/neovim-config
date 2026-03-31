@@ -9,6 +9,7 @@ vim.opt.softtabstop = 4
 vim.opt.smartindent = false
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.opt.cmdheight = 0
 vim.opt.wrap = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
