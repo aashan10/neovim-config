@@ -3,7 +3,6 @@ local M = {};
 -- Register Your Plugins Here
 local plugins = {
     'plugins.mini',
-    'plugins.barbar',
     'plugins.tree-sitter',
     'plugins.telescope',
     'plugins.git-signs',
