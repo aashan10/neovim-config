@@ -8,7 +8,8 @@ M.setup_lsp = function()
         'php',
         'html',
         'ts',
-        "twig"
+        'twig',
+        'vue',
     };
 
     for _, lsp in ipairs(lsps) do
@@ -51,8 +52,8 @@ M.setup = function()
     local keymaps = {
         ['n'] = {
             ['<leader>dd'] = function()
-                local opts = { desc = 'LSP: Show Diagnostics' }
-                vim.diagnostic.open_float(opts)
+                local opts = { desc = 'LSP: Clear Diagnostics' }
+                vim.diagnostic.reset()
             end,
             ['[d'] = function()
                 local opts = { desc = 'LSP: Goto Previous Diagnostics', count = -1 }

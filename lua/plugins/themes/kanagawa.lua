@@ -8,7 +8,7 @@ M.dependencies = function()
         { src = 'https://github.com/rebelot/kanagawa.nvim' },
     }
 end
-
+-- this is a comment
 M.setup = function()
     require('kanagawa').setup({
         compile = true,
@@ -35,11 +35,18 @@ M.setup = function()
         },
         overrides = function(colors)
             local theme = colors.theme
+            local palette = colors.palette
             return {
                 CursorLineNr = { fg = theme.ui.special1, bg = "none", bold = true },
                 LineNr = { fg = theme.ui.fg_dim, bg = "none" },
+                ["@keyword.modifier.php"] = { fg = palette.surimi_orange, bg = "none", italic = true },
             }
         end,
+        theme = "wave",
+        background = {
+            dark = "wave",
+            light = "lotus",
+        }
     })
 end
 
