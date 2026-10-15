@@ -6,6 +6,7 @@ local plugins = {
     'plugins.telescope.frecency',
     'plugins.telescope.ui_select',
     'plugins.telescope.media',
+    'plugins.telescope.timetracker',
 };
 
 M.init = function()

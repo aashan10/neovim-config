@@ -22,6 +22,7 @@ local plugins = {
     'plugins.conform',
     'plugins.refactoring',
     'plugins.themes',
+    'plugins.timetracker',
 };
 
 local function get_plugins()
