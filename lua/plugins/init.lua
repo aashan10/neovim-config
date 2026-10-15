@@ -3,7 +3,6 @@ local M = {};
 -- Register Your Plugins Here
 local plugins = {
     'plugins.mini',
-    'plugins.barbar',
     'plugins.tree-sitter',
     'plugins.tree-sitter-context',
     'plugins.tree-sitter-textobjects',
@@ -26,6 +25,7 @@ local plugins = {
     'plugins.conform',
     'plugins.refactoring',
     'plugins.themes',
+    'plugins.timetracker',
 };
 
 local function get_plugins()

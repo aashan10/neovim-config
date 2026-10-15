@@ -6,6 +6,7 @@ local plugins = {
     'plugins.telescope.frecency',
     'plugins.telescope.ui_select',
     'plugins.telescope.media',
+    'plugins.telescope.timetracker',
 };
 
 M.init = function()
@@ -81,6 +82,7 @@ M.setup = function()
     vim.keymap.set('n', '<leader>fs', '<cmd>Telescope live_grep<CR>', { desc = "Telescope: Live Grep" });
     vim.keymap.set('n', '<leader>fc', '<cmd>Telescope grep_string<CR>', { desc = "Telescope: Grep String" });
     vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>', { desc = "Telescope: Buffers" });
+    vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<CR>', { desc = "Telescope: Buffers" });
 
     for _, plugin in ipairs(plugins) do
         local plugin_module = require(plugin);
